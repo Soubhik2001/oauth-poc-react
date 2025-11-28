@@ -1,11 +1,12 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import Login from './pages/Login';
-import Dashboard from './pages/Dashboard';
-import CreateUser from './pages/CreateUser';
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
+import CreateUser from "./pages/CreateUser";
+import Settings from "./pages/Settings";
 
 // Simple protected route wrapper
 const ProtectedRoute = ({ children }) => {
-  const token = localStorage.getItem('adminToken');
+  const token = localStorage.getItem("adminToken");
   return token ? children : <Navigate to="/" />;
 };
 
@@ -14,22 +15,23 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route 
-          path="/dashboard" 
+        <Route
+          path="/dashboard"
           element={
             <ProtectedRoute>
               <Dashboard />
             </ProtectedRoute>
-          } 
+          }
         />
-        <Route 
-          path="/create-user" 
+        <Route
+          path="/create-user"
           element={
             <ProtectedRoute>
               <CreateUser />
             </ProtectedRoute>
-          } 
+          }
         />
+        <Route path="/settings" element={<Settings />} />
       </Routes>
     </BrowserRouter>
   );

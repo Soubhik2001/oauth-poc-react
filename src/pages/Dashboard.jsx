@@ -108,7 +108,7 @@ const Dashboard = () => {
       alert(`User ${action}d successfully.`);
       setTasks(tasks.filter((t) => t.id !== taskId));
     } catch (err) {
-      alert(`Failed to ${action} user`,err);
+      alert(`Failed to ${action} user`, err);
     }
   };
 
@@ -138,6 +138,23 @@ const Dashboard = () => {
             Approval Dashboard
           </h1>
           <div>
+            {role === "superadmin" && (
+              <button
+                onClick={() => navigate("/settings")}
+                style={{
+                  marginRight: "10px",
+                  padding: "10px 18px",
+                  backgroundColor: "#6c757d",
+                  color: "white",
+                  border: "none",
+                  borderRadius: "6px",
+                  cursor: "pointer",
+                  fontWeight: "bold",
+                }}
+              >
+                ⚙️ Settings
+              </button>
+            )}
             <button
               onClick={() => navigate("/create-user")}
               style={{
