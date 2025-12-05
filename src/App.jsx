@@ -3,6 +3,7 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import CreateUser from "./pages/CreateUser";
 import Settings from "./pages/Settings";
+import SetupAccount from "./pages/SetupAccount";
 
 // Simple protected route wrapper
 const ProtectedRoute = ({ children }) => {
@@ -23,6 +24,7 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route path="/setup-account" element={<SetupAccount />} />
         <Route
           path="/create-user"
           element={
